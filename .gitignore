@@ -1,3 +1,5 @@
+# default .gitignore from github
+
 # Prerequisites
 *.d
 
@@ -6,6 +8,7 @@
 *.ko
 *.obj
 *.elf
+*.bin
 
 # Linker output
 *.ilk

@@ -1,0 +1,33 @@
+// SPDX-License-Identifier: MIT
+/*
+ *  Copyright (c) 2025-2025 Spencer J Coward
+ *
+ *  Spencer J. Coward <spencerjcoward@gmail.com>
+ */
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Cortex Debug",
+            "cwd": "${workspaceFolder}",
+            "executable": "${workspaceFolder}/firmware.elf",
+            "request": "launch",
+            "type": "cortex-debug",
+            // Stop at the first CPU instruction
+            "runToEntryPoint": "isr_reset",
+            "servertype": "openocd",
+            "gdbPath": "gdb-multiarch",
+            "searchDir": [
+                "/home/scoward/sjc/github/openocd-org/openocd/tcl"
+            ],
+            "configFiles": [
+                "interface/xds110.cfg",
+                "target/ti_mspm0.cfg"
+            ],
+            "preLaunchCommands": [
+                "monitor program ${workspaceFolder}/firmware.elf verify reset"
+            ],
+            "internalConsoleOptions": "neverOpen",
+        }
+    ]
+}
